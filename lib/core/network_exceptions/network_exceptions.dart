@@ -2,13 +2,15 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_gallery_app/core/network_exceptions/error/error.dart';
+import 'package:my_gallery_app/core/network_exceptions/failure_model/failure_model.dart';
 part 'network_exceptions.freezed.dart';
+
 @freezed
 abstract class NetworkExceptions with _$NetworkExceptions {
   const factory NetworkExceptions.requestCancelled() = RequestCancelled;
 
-  const factory NetworkExceptions.unauthorizedRequest(String reason) = UnauthorizedRequest;
+  const factory NetworkExceptions.unauthorizedRequest(String reason) =
+      UnauthorizedRequest;
 
   const factory NetworkExceptions.badRequest() = BadRequest;
 
@@ -22,7 +24,8 @@ abstract class NetworkExceptions with _$NetworkExceptions {
 
   const factory NetworkExceptions.sendTimeout() = SendTimeout;
 
-  const factory NetworkExceptions.unprocessableEntity(String reason) = UnprocessableEntity;
+  const factory NetworkExceptions.unprocessableEntity(String reason) =
+      UnprocessableEntity;
 
   const factory NetworkExceptions.conflict() = Conflict;
 
@@ -43,8 +46,15 @@ abstract class NetworkExceptions with _$NetworkExceptions {
   const factory NetworkExceptions.unexpectedError() = UnexpectedError;
 
   static NetworkExceptions handleResponse(Response? response) {
-    List<ErrorModel> listOfErrors = List.from(response?.data).map((e) => ErrorModel.fromJson(e)).toList();
-    String allErrors = listOfErrors.map((e) => "${e.field} : ${e.message}  ").toString().replaceAll("(", "").replaceAll(")", "");
+    FailureModel failureModel = FailureModel.fromJson(response?.data);
+    String allImageErrors = failureModel.errors!.imageErrors
+        .map((errorMessage) => "$errorMessage  ")
+        .toString()
+        .replaceAll("(", "")
+        .replaceAll(")", "");
+    String errorMessage = failureModel.message;
+    String allErrors = "$errorMessage \n $allImageErrors";
+    
     int statusCode = response?.statusCode ?? 0;
     switch (statusCode) {
       case 400:
@@ -84,7 +94,8 @@ abstract class NetworkExceptions with _$NetworkExceptions {
               networkExceptions = const NetworkExceptions.requestTimeout();
               break;
             case DioExceptionType.connectionError:
-              networkExceptions = const NetworkExceptions.noInternetConnection();
+              networkExceptions =
+                  const NetworkExceptions.noInternetConnection();
               break;
             case DioExceptionType.receiveTimeout:
               networkExceptions = const NetworkExceptions.sendTimeout();
@@ -93,7 +104,8 @@ abstract class NetworkExceptions with _$NetworkExceptions {
               networkExceptions = const NetworkExceptions.sendTimeout();
               break;
             default:
-              networkExceptions = NetworkExceptions.handleResponse(error.response);
+              networkExceptions =
+                  NetworkExceptions.handleResponse(error.response);
               break;
           }
         } else if (error is SocketException) {
