@@ -8,7 +8,7 @@ class LoginCubit extends Cubit<LoginState> {
   final UserRepository _userRepository;
   LoginCubit(this._userRepository) : super(LoginInitial());
   static LoginCubit get(context) => BlocProvider.of(context);
-  void login(LoginRequestBody loginRequestBody) async{
+  Future<void> login(LoginRequestBody loginRequestBody) async{
     emit(LoginLoading());
     final response = await _userRepository.login(loginRequestBody: loginRequestBody);
     response.fold(

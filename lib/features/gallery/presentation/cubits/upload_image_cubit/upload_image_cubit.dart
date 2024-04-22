@@ -12,7 +12,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
   UploadImageCubit(this._imagePicker, this._galleryRepository)
       : super(UploadImageInitial());
   static UploadImageCubit get(context) => BlocProvider.of(context);
-  void uploadImage({required ImageSource imageSource}) async {
+  Future<void> uploadImage({required ImageSource imageSource}) async {
     emit(UploadImageLoading());
     final pickedImage = await _imagePicker.pickImage(source: imageSource);
     if (pickedImage != null) {
