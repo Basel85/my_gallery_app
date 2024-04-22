@@ -10,6 +10,7 @@ class DioHelper {
     _dio.options.receiveTimeout = const Duration(seconds: 10000);
     _dio.options.headers = {
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
     };
     _dio.interceptors.add(LogInterceptor(
       request: true,

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'web_services.dart';
+part of 'user_remote_data_source.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'web_services.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _WebServices implements WebServices {
-  _WebServices(
+class _UserRemoteDataSource implements UserRemoteDataSource {
+  _UserRemoteDataSource(
     this._dio, {
     this.baseUrl,
   }) {
