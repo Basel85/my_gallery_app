@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:my_gallery_app/core/router/app_router.dart';
 
 class MyGalleryApp extends StatelessWidget {
-  const MyGalleryApp({super.key});
+  final String firstScreen;
+  const MyGalleryApp({super.key, required this.firstScreen});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My Gallery',
-      initialRoute: '/',
+      initialRoute: firstScreen,
       onGenerateRoute: AppRouter.onGenerateRoute,
     );
   }
