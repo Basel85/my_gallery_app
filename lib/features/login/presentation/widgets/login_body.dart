@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/app_title_text.dart';
@@ -5,7 +6,7 @@ import 'package:my_gallery_app/features/login/presentation/widgets/curved_oval_s
 import 'package:my_gallery_app/features/login/presentation/widgets/full_screen_component.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/gallery_component/gallery_component.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/grey_elipsed_component.dart';
-import 'package:my_gallery_app/features/login/presentation/widgets/login_form.dart';
+import 'package:my_gallery_app/features/login/presentation/widgets/login_form/login_form.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/love_photography/love_photography.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/pink_elipsed_component.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/blured_component/blured_component.dart';

@@ -8,7 +8,7 @@ class LovePhotographyImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(AppAssets.lovePhotograhpy,
+    return Image.asset(AppAssets.lovePhotograhpy,
         width: 131.56.w, height: 131.56.w);
   }
 }
