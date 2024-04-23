@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_gallery_app/features/login/presentation/widgets/curved_oval_shapes/curved_oval_shapes_image.dart';
+import 'package:my_gallery_app/core/widgets/curved_oval_shapes/curved_oval_shapes_image.dart';
 
 class CurvedOvalShapes extends StatelessWidget {
   const CurvedOvalShapes({super.key});

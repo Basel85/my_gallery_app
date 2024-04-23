@@ -3,13 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_gallery_app/core/theme/app_colors.dart';
 
 class GreyElipsedComponent extends StatelessWidget {
-  const GreyElipsedComponent({super.key});
+  final double appBarHeight;
+  const GreyElipsedComponent({super.key, this.appBarHeight=0});
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
       left: 79.33.w,
-      top: -77.h,
+      top: (-77.h)-(appBarHeight.h),
       child: Container(
           height: 683.15.h,
           width: 538.67.w,

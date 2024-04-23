@@ -4,8 +4,8 @@ import 'package:my_gallery_app/core/theme/app_colors.dart';
 import 'package:my_gallery_app/features/login/presentation/widgets/login_form/submit_button/submit_text.dart';
 
 class SubmitButton extends StatelessWidget {
-  final void Function()? onTap;
-  const SubmitButton({super.key, this.onTap});
+  final void Function() onTap;
+  const SubmitButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

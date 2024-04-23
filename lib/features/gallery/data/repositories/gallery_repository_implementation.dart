@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:my_gallery_app/core/network_exceptions/network_exceptions.dart';
 import 'package:my_gallery_app/features/gallery/data/data_sources/gallery_local_data_source.dart';
 import 'package:my_gallery_app/features/gallery/data/data_sources/gallery_remote_data_source.dart';
@@ -23,10 +24,13 @@ class GalleryRepositoryImplementation extends GalleryRepository {
   Future<Either<NetworkExceptions, GalleryData>> getMyGallery() async {
     try {
       _token = await _galleryLocalDataSource.getToken();
+      debugPrint("Token: $_token");
       final galleryResponse =
-          await _galleryRemoteDataSource.getMyGallery(token: _token);
+          await _galleryRemoteDataSource.getMyGallery(token: 'Bearer $_token');
+      debugPrint("Hello");
       _galleryLocalDataSource.cacheGalleryImages(
           galleryImages: galleryResponse.galleryDataModel.images);
+      debugPrint("HI");
       return Right(galleryResponse.galleryDataModel);
     } catch (e) {
       if (e is Exception &&
@@ -51,7 +55,7 @@ class GalleryRepositoryImplementation extends GalleryRepository {
     try {
       _token = await _galleryLocalDataSource.getToken();
       final uploadImageResponse = await _galleryRemoteDataSource.uploadImage(
-          imageFile: imageFile, token: _token);
+          imageFile: imageFile, token: 'Bearer $_token');
       return Right(uploadImageResponse);
     } catch (e) {
       return Left(NetworkExceptions.getDioException(e));

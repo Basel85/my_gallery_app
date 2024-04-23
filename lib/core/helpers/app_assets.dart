@@ -6,4 +6,5 @@ class AppAssets {
   static const String yellowCircle = 'assets/images/yellow_circle.svg';
   static const String galleryIcon = 'assets/icons/gallery_icon.svg';
   static const String videoIcon = 'assets/icons/video_icon.svg';
+  static const String userProfilePicture = 'assets/images/user_profile_picture.jpg';
 }

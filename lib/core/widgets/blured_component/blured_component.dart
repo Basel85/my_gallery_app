@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_gallery_app/features/login/presentation/widgets/blured_component/transparent_elipse_component.dart';
+import 'package:my_gallery_app/core/widgets/blured_component/transparent_elipse_component.dart';
 
 class BluredComponent extends StatelessWidget {
   final double left;

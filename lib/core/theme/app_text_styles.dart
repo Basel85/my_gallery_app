@@ -23,4 +23,14 @@ class AppTextStyles {
       fontWeight: FontWeight.bold,
       color: AppColors.pureWhiteColor,
    ); 
+   static TextStyle get fontSize32FontFamilyBalooThambi2FontWeightSemiBoldColor4A4A4A => TextStyle(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.w600,
+      color: AppColors.blackColor,
+   ); 
+   static TextStyle get fontSize20FontFamilyBalooThambi2FontWeightSemiBoldColor4A4A4A => TextStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeight.w600,
+      color: AppColors.blackColor,
+   ); 
 }

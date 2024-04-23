@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_gallery_app/core/helpers/app_assets.dart';
 
-class LovePhotographyImage extends StatelessWidget {
-  const LovePhotographyImage({super.key});
+class UserProfilePicture extends StatelessWidget {
+  const UserProfilePicture({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      AppAssets.lovePhotograhpy,
-      width: 131.56.w,
-      height: 131.56.h,
+    return CircleAvatar(
+      radius: 33.r,
+      backgroundImage: const AssetImage(
+        AppAssets.userProfilePicture,
+      ),
     );
   }
 }

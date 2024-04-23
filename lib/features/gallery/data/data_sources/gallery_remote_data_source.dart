@@ -15,7 +15,8 @@ abstract class GalleryRemoteDataSource {
   Future<GalleryResponse> getMyGallery({@Header('Authorization') required String token});
 
   @POST(ApiUrls.uploadImageEndPoint)
+  @MultiPart()
   Future<String> uploadImage(
       {@Part() required File imageFile,
-      @Header('Authorization') required String token});
+      @Part() @Header('Authorization') required String token});
 }
